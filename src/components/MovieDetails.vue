@@ -1,22 +1,24 @@
 <template>
   <div>
-    
+      <img :src="selectedMovie.url" alt="affiche du film">
       <h1>{{selectedMovie.title}}</h1>
       <p><b>Date de sortie : </b>{{selectedMovie.date}}</p>
           <p><b>Réalisateur : </b>{{selectedMovie.director}}</p>
           <p><b>Synopsys : </b>{{selectedMovie.synopsys}}</p>
 
-          <button>Editer</button>
+        <router-link :to="{ name: 'edit_movie', params: {id: selectedMovie.id } }"><button>Editer</button></router-link>
+
   </div>
 </template>
 
   <script>
-    import { movies } from '../data.js'
+    // import { movies } from '../data.js'
 
   export default {
    data () {
     return {
-      selectedMovie: movies[this.$route.params.id]
+     shared_data: window.shared_data,
+      selectedMovie: shared_data.movies[this.$route.params.id]
     }
   },
   // watch: {

@@ -9,7 +9,7 @@
     <button v-on:click="search">Recherche</button>
     <button v-if="displayReboot" v-on:click="reboot">Réinitialiser</button>
     <ul>
-      <li v-for="(m,i) in movies" v-bind:key="m.title">({{i}})
+      <li v-for="(m,i) in  shared_data.movies" v-bind:key="m.title">({{i}})
       <!-- <router-link To:"/edit">  -->
       
         <!-- <p v-on:click="showDetails(i)"><b>Titre : </b>{{m.title}}</p> -->
@@ -23,18 +23,20 @@
         </div> -->
       </li>
     </ul>
-    <p>Nombre de films : {{movies.length}}</p>
+    <p>Nombre de films : {{shared_data.movies.length}}</p>
   </div>
 </template>
-
+!
   <script>
-  import { movies } from '../data.js'
+  // import { movies } from '../data.js'
   export default {
 
   data() {
     return {
+        
+    shared_data: window.shared_data,
 
-        movies: movies,
+        // movies: movies,
         moviesBase : '',
         searchWord : '',
         displayReboot : false,
@@ -47,22 +49,21 @@
     }
   },
       methods: {
-         showDetails(index) {
-           this.movies[index].displayDetails = !this.movies[index].displayDetails;
-         },
+        //  showDetails(index) {
+        //    this.movies[index].displayDetails = !this.movies[index].displayDetails;
+        //  },
         search() {
           if (this.searchBy == "title") {
-            this.moviesBase = this.movies;
-            this.movies = this.movies.filter(m => m.title == this.searchWord);
+            this.moviesBase = this.shared_data.movies;
+            this.shared_data.movies = this.shared_data.movies.filter(m => m.title == this.searchWord);
             this.displayReboot = true;
           } else if (this.searchBy == "date") {
-            this.moviesBase = this.movies;
-            this.movies = this.movies.filter(m => m.date == this.searchWord);
+            this.moviesBase = this.shared_data.movies;
+            this.shared_data.movies = this.shared_data.movies.filter(m => m.date == this.searchWord);
             this.displayReboot = true;
-
           } else if (this.searchBy == "director") {
-            this.moviesBase = this.movies;
-            this.movies = this.movies.filter(m => m.director == this.searchWord);
+            this.shared_datamoviesBase = this.shared_data.movies;
+            this.shared_data.movies = this.shared_data.movies.filter(m => m.director == this.searchWord);
             this.displayReboot = true;
           }
         },
