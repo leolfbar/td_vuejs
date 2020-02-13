@@ -1,76 +1,108 @@
 <template>
   <div>
-    <select v-model="searchBy">
+    <!-- end navbar -->
+
+    <!-- <select v-model="searchBy">
       <option value="title">Titre</option>
       <option value="date">Date</option>
       <option value="director">Réalisateur</option>
-    </select>
-    <input v-model="searchWord">
-    <button v-on:click="search">Recherche</button>
-    <button v-if="displayReboot" v-on:click="reboot">Réinitialiser</button>
-    <ul>
-      <li v-for="(m,i) in  shared_data.movies" v-bind:key="m.title">({{i}})
-      <!-- <router-link To:"/edit">  -->
-      
-        <!-- <p v-on:click="showDetails(i)"><b>Titre : </b>{{m.title}}</p> -->
-        
-         
-        <router-link :to="{ name: 'movie_details', params: {id: m.id } }"><p ><b>Titre : </b>{{m.title}}</p></router-link>
-        <!-- <div v-if="m.displayDetails">
-          <p><b>Date de sortie : </b>{{m.date}}</p>
-          <p><b>Réalisateur : </b>{{m.director}}</p>
-          <p><b>Synopsys : </b>{{m.synopsys}}</p>
-        </div> -->
-      </li>
-    </ul>
-    <p>Nombre de films : {{shared_data.movies.length}}</p>
+    </select> -->
+
+    <b-container class="bv-example-row">
+      <b-row class="mb-5">
+        <b-input-group>
+          <b-form-input v-model="searchWord" />
+
+          <b-input-group-append>
+            <b-form-select v-model="searchBy" :options="options"
+              >Filtre</b-form-select
+            >
+            <b-button v-on:click="search">Recherche</b-button>
+
+            <b-button v-if="displayReboot" v-on:click="reboot" variant="danger"
+              >Réinitialiser</b-button
+            >
+          </b-input-group-append>
+        </b-input-group>
+        </b-row>
+        <b-row>
+        <b-col v-for="m in shared_data.movies" v-bind:key="m.title">
+          <b-card
+            :title="m.title"
+            img-alt="Affiche du film"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2 mt-2"
+            :img-src="m.url"
+          >
+            <b-card-text>
+              <router-link :to="{ name: 'movie_details', params: { id: m.id } }"
+                ><b-button variant="warning">Détails</b-button></router-link
+              >
+            </b-card-text>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <!-- <p>Nombre de films : {{ shared_data.movies.length }}</p> -->
   </div>
 </template>
 !
-  <script>
-  // import { movies } from '../data.js'
-  export default {
-
+<script>
+// import { movies } from '../data.js'
+export default {
   data() {
     return {
-        
-    shared_data: window.shared_data,
-
-        // movies: movies,
-        moviesBase : '',
-        searchWord : '',
-        displayReboot : false,
-        searchBy: 'title',
-        sortTitle: '',
-        sortDate: '',
-        sortDirector: '',
-        sortSynopsys: '',
-        IdRemoveMovie: 0
-    }
+      shared_data: window.shared_data,
+      selected: "title",
+      options: [
+        { value: "title", text: "Titre" },
+        { value: "date", text: "Date" },
+        { value: "director", text: "Réalisateur" }
+      ],
+      // movies: movies,
+      moviesBase: "",
+      searchWord: "",
+      displayReboot: false,
+      searchBy: "title",
+      sortTitle: "",
+      sortDate: "",
+      sortDirector: "",
+      sortSynopsys: "",
+      IdRemoveMovie: 0
+    };
   },
-      methods: {
-        //  showDetails(index) {
-        //    this.movies[index].displayDetails = !this.movies[index].displayDetails;
-        //  },
-        search() {
-          if (this.searchBy == "title") {
-            this.moviesBase = this.shared_data.movies;
-            this.shared_data.movies = this.shared_data.movies.filter(m => m.title == this.searchWord);
-            this.displayReboot = true;
-          } else if (this.searchBy == "date") {
-            this.moviesBase = this.shared_data.movies;
-            this.shared_data.movies = this.shared_data.movies.filter(m => m.date == this.searchWord);
-            this.displayReboot = true;
-          } else if (this.searchBy == "director") {
-            this.shared_datamoviesBase = this.shared_data.movies;
-            this.shared_data.movies = this.shared_data.movies.filter(m => m.director == this.searchWord);
-            this.displayReboot = true;
-          }
-        },
-        reboot() {
-          this.movies = this.moviesBase;
-          this.displayReboot = false;
-        }
+  methods: {
+    //  showDetails(index) {
+    //    this.movies[index].displayDetails = !this.movies[index].displayDetails;
+    //  },
+    search() {
+      if (this.searchBy == "title") {
+        this.moviesBase = this.shared_data.movies;
+        this.shared_data.movies = this.shared_data.movies.filter(
+          m => m.title == this.searchWord
+        );
+        this.displayReboot = true;
+      } else if (this.searchBy == "date") {
+        this.moviesBase = this.shared_data.movies;
+        this.shared_data.movies = this.shared_data.movies.filter(
+          m => m.date == this.searchWord
+        );
+        this.displayReboot = true;
+      } else if (this.searchBy == "director") {
+        this.shared_datamoviesBase = this.shared_data.movies;
+        this.shared_data.movies = this.shared_data.movies.filter(
+          m => m.director == this.searchWord
+        );
+        this.displayReboot = true;
       }
+    },
+    reboot() {
+      this.shared_data.movies = this.moviesBase;
+      this.displayReboot = false;
     }
-  </script>
+  }
+};
+</script>

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <router-link to='/details'>Details</router-link>
+
     <br>
     <router-view />
   </div>
@@ -24,6 +23,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+}
+
+html {
+    height: 100%;
+    
+
+}
+
+body{
+  background-image: url("https://eliagraffiti.files.wordpress.com/2017/03/plan-de-travail-4.png");
 }
 </style>

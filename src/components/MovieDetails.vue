@@ -1,46 +1,45 @@
 <template>
-  <div>
-      <img :src="selectedMovie.url" alt="affiche du film">
-      <h1>{{selectedMovie.title}}</h1>
-      <p><b>Date de sortie : </b>{{selectedMovie.date}}</p>
-          <p><b>Réalisateur : </b>{{selectedMovie.director}}</p>
-          <p><b>Synopsys : </b>{{selectedMovie.synopsys}}</p>
+  <b-container class="bv-example-row">
+    <b-card
+      :title="selectedMovie.title"
+      :img-src="selectedMovie.url"
+      img-alt="Image"
+      style="max-width: 60rem;"
+      class="mb-2"
+    >
+      <b-card-text>
+        <p><b>Date de sortie : </b>{{ selectedMovie.date }}</p>
+      </b-card-text>
+      <b-card-text>
+        <p><b>Réalisateur : </b>{{ selectedMovie.director }}</p>
+      </b-card-text>
+      <b-card-text>
+        <p><b>Synopsys : </b>{{ selectedMovie.synopsys }}</p>
+      </b-card-text>
 
-        <router-link :to="{ name: 'edit_movie', params: {id: selectedMovie.id } }"><button>Editer</button></router-link>
-
-  </div>
+      <router-link
+        :to="{ name: 'edit_movie', params: { id: selectedMovie.id } }"
+        ><b-button variant="success">Editer</b-button></router-link
+      >
+    </b-card>
+  </b-container>
 </template>
 
-  <script>
-    // import { movies } from '../data.js'
+<script>
+// import { movies } from '../data.js'
 
-  export default {
-   data () {
+export default {
+  data() {
     return {
-     shared_data: window.shared_data,
+      shared_data: window.shared_data,
       selectedMovie: shared_data.movies[this.$route.params.id]
-    }
-  },
-  // watch: {
-  //   $route () {
-  //     this.selectMovie()
-  //   }
-  // },
-  // methods: {
-  //   selectMovie () {
-  //     this.selectedMovie = movies[this.$route.params.id]
-  //   }
-  // }
+    };
   }
+};
+</script>
 
-  // <select v-model="searchBy">
-  //     <option value="title">Titre</option>
-  //     <option value="date">Date</option>
-  //     <option value="director">Réalisateur</option>
-  //   </select>
-  //   <input v-model="searchWord">
-  //   <button v-on:click="display">AFFICHRE</button>
-  //   <button v-if="displayReboot" v-on:click="reboot">Réinitialiser</button>
-  </script>
-
-
+<style>
+.b-card {
+  text-align: center;
+}
+</style>
