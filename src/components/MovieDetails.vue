@@ -11,16 +11,36 @@
         <p><b>Date de sortie : </b>{{ selectedMovie.date }}</p>
       </b-card-text>
       <b-card-text>
-        <p><b>Réalisateur : </b>{{ selectedMovie.director }}</p>
+        <p><b>Genre : </b>{{ selectedMovie.style }}</p>
       </b-card-text>
       <b-card-text>
-        <p><b>Synopsys : </b>{{ selectedMovie.synopsys }}</p>
+        <p><b>Langue : </b>{{ selectedMovie.language }}</p>
       </b-card-text>
+      <b-card-text>
+        <p><b>Nom du réalisateur : </b>{{ selectedMovie.director.name }}</p>
+      </b-card-text>
+      <b-card-text>
+        <p><b>Nationalité du réalisateur : </b>{{ selectedMovie.director.nationality }}</p>
+      </b-card-text>
+      <b-card-text>
+        <p><b>Date de naissance du réalisateur : </b>{{ selectedMovie.director.birthdate }}</p>
+      </b-card-text>
+      
 
-      <router-link
+      
+      
+           <router-link
+           class="mr-2"
         :to="{ name: 'edit_movie', params: { id: selectedMovie.id } }"
         ><b-button variant="success">Editer</b-button></router-link
       >
+      <router-link
+        class="ml-2"
+        :to="{ name: 'movies', params: { id: selectedMovie.id } }"
+        ><b-button variant="danger">Retour</b-button></router-link
+      >
+      
+     
     </b-card>
   </b-container>
 </template>

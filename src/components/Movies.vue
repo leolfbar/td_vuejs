@@ -17,7 +17,7 @@
             <b-form-select v-model="searchBy" :options="options"
               >Filtre</b-form-select
             >
-            <b-button v-on:click="search">Recherche</b-button>
+            <b-button variant="warning" v-on:click="search">Recherche</b-button>
 
             <b-button v-if="displayReboot" v-on:click="reboot" variant="danger"
               >Réinitialiser</b-button
@@ -26,7 +26,7 @@
         </b-input-group>
         </b-row>
         <b-row>
-        <b-col v-for="m in shared_data.movies" v-bind:key="m.title">
+        <b-col cols="4" v-for="m in shared_data.movies" v-bind:key="m.title">
           <b-card
             :title="m.title"
             img-alt="Affiche du film"
@@ -94,7 +94,7 @@ export default {
       } else if (this.searchBy == "director") {
         this.shared_datamoviesBase = this.shared_data.movies;
         this.shared_data.movies = this.shared_data.movies.filter(
-          m => m.director == this.searchWord
+          m => m.director.name == this.searchWord
         );
         this.displayReboot = true;
       }

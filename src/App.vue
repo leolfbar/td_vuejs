@@ -5,12 +5,7 @@
     <router-view />
   </div>
 </template>
-
 <script>
-
-
-
-
 export default {
 
 }
@@ -28,8 +23,6 @@ export default {
 
 html {
     height: 100%;
-    
-
 }
 
 body{
