@@ -1,19 +1,15 @@
 <template>
   <div>
-    <!-- end navbar -->
-
-    <!-- <select v-model="searchBy">
-      <option value="title">Titre</option>
-      <option value="date">Date</option>
-      <option value="director">Réalisateur</option>
-    </select> -->
-
     <b-container class="bv-example-row">
+      <img
+        src="https://pngriver.com/wp-content/uploads/2018/04/Download-Harry-Potter-Logo-PNG-Clipart.png"
+        alt=""
+      />
       <b-row class="mb-5">
         <b-input-group>
           <b-form-input v-model="searchWord" />
 
-          <b-input-group-append>
+          <b-input-group-append prepend="Username">
             <b-form-select v-model="searchBy" :options="options"
               >Filtre</b-form-select
             >
@@ -24,8 +20,8 @@
             >
           </b-input-group-append>
         </b-input-group>
-        </b-row>
-        <b-row>
+      </b-row>
+      <b-row>
         <b-col cols="4" v-for="m in shared_data.movies" v-bind:key="m.title">
           <b-card
             :title="m.title"
@@ -45,13 +41,10 @@
         </b-col>
       </b-row>
     </b-container>
-
-    <!-- <p>Nombre de films : {{ shared_data.movies.length }}</p> -->
   </div>
 </template>
 !
 <script>
-// import { movies } from '../data.js'
 export default {
   data() {
     return {
@@ -75,9 +68,6 @@ export default {
     };
   },
   methods: {
-    //  showDetails(index) {
-    //    this.movies[index].displayDetails = !this.movies[index].displayDetails;
-    //  },
     search() {
       if (this.searchBy == "title") {
         this.moviesBase = this.shared_data.movies;

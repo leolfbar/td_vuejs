@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-
-    <br>
+    <br />
     <router-view />
   </div>
 </template>
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -22,10 +19,10 @@ export default {
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
-body{
+body {
   background-image: url("https://eliagraffiti.files.wordpress.com/2017/03/plan-de-travail-4.png");
 }
 </style>

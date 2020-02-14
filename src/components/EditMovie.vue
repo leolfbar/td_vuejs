@@ -5,7 +5,7 @@
       :img-src="selectedMovie.url"
       img-alt="Image"
       style="max-width: 60rem;"
-      class="mb-2"
+      class="mb-2 image-size"
     >
       <input
         class="mb-3"
@@ -19,7 +19,7 @@
           v-on:input="shared_data.movies[id].date = $event.target.value"
         />
       </b-card-text>
-      
+
       <b-card-text>
         <p><b>Genre : </b>{{ selectedMovie.style }}</p>
         <input
@@ -38,24 +38,35 @@
         <p><b>Nom du réalisateur : </b>{{ selectedMovie.director.name }}</p>
         <input
           v-bind:value="shared_data.movies[id].director.name"
-          v-on:input="shared_data.movies[id].director.name = $event.target.value"
+          v-on:input="
+            shared_data.movies[id].director.name = $event.target.value
+          "
         />
       </b-card-text>
       <b-card-text>
-        <p><b>Nationalité du réalisateur : </b>{{ selectedMovie.director.nationality }}</p>
+        <p>
+          <b>Nationalité du réalisateur : </b
+          >{{ selectedMovie.director.nationality }}
+        </p>
         <input
           v-bind:value="shared_data.movies[id].director.nationality"
-          v-on:input="shared_data.movies[id].director.nationality = $event.target.value"
+          v-on:input="
+            shared_data.movies[id].director.nationality = $event.target.value
+          "
         />
       </b-card-text>
       <b-card-text>
-        <p><b>Date de naissance du réalisateur : </b>{{ selectedMovie.director.birthdate }}</p>
+        <p>
+          <b>Date de naissance du réalisateur : </b
+          >{{ selectedMovie.director.birthdate }}
+        </p>
         <input
           v-bind:value="shared_data.movies[id].director.birthdate"
-          v-on:input="shared_data.movies[id].director.birthdate = $event.target.value"
+          v-on:input="
+            shared_data.movies[id].director.birthdate = $event.target.value
+          "
         />
       </b-card-text>
-      
 
       <router-link
         :to="{ name: 'movie_details', params: { id: selectedMovie.id } }"
@@ -66,8 +77,6 @@
 </template>
 
 <script>
-// import { movies } from '../data.js'
-
 export default {
   data() {
     return {
@@ -80,9 +89,16 @@ export default {
   methods: {
     persistTitle(event) {
       shared_data.movies[id].title = $event.target.value;
-      //   this.movies = this.moviesBase;
-      //   this.displayReboot = false;
     }
   }
 };
 </script>
+
+<style>
+.image-size img {
+  width: 50%;
+  height: auto;
+
+  align-self: center;
+}
+</style>

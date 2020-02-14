@@ -6,9 +6,7 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-// Install BootstrapVue
 Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
 Vue.use(VueRouter);
@@ -37,7 +35,7 @@ window.shared_data = {
     language: "français",
     director: {
       name: "Chris Columbus",
-      nationality: "Américaine",
+      nationality: "Américain",
       birthdate: "10 septembre 1958"
     },
     style: "Fantastique",
@@ -49,9 +47,9 @@ window.shared_data = {
     date: 2004,
     language: "français",
     director: {
-      name: "Chris Columbus",
-      nationality: "Américaine",
-      birthdate: "10 septembre 1958"
+      name: "Alfonso Cuarón",
+      nationality: "Mexicain",
+      birthdate: "28 novembre 1961"
     },
     style: "Fantastique",
     url: "https://m.media-amazon.com/images/M/MV5BMTlhZGY1YjYtZGRiYi00NjM2LWFkMDktOGY3YzM2MzM0NjVlXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_SY1000_CR0,0,712,1000_AL_.jpg",
@@ -62,9 +60,9 @@ window.shared_data = {
     date: 2005,
     language: "français",
     director: {
-      name: "Chris Columbus",
-      nationality: "Américaine",
-      birthdate: "10 septembre 1958"
+      name: "Mike Newell",
+      nationality: "Britannique",
+      birthdate: " 28 mars 1942"
     },
     style: "Fantastique",
     url: "https://m.media-amazon.com/images/M/MV5BZWYxYmFlMjYtZDFkYi00NDZiLWE4ZDItNTU3NzliZWJmYTliXkEyXkFqcGdeQXVyODIyOTEyMzY@._V1_.jpg",
@@ -75,9 +73,9 @@ window.shared_data = {
     date: 2007,
     language: "français",
     director: {
-      name: "Chris Columbus",
-      nationality: "Américaine",
-      birthdate: "10 septembre 1958"
+      name: "David Yates",
+      nationality: "Britannique",
+      birthdate: "8 octobre 1963"
     },
     style: "Fantastique",
     url: "https://m.media-amazon.com/images/M/MV5BMTM0NTczMTUzOV5BMl5BanBnXkFtZTYwMzIxNTg3._V1_.jpg",
@@ -88,9 +86,9 @@ window.shared_data = {
     date: 2009,
     language: "français",
     director: {
-      name: "Chris Columbus",
-      nationality: "Américaine",
-      birthdate: "10 septembre 1958"
+      name: "David Yates",
+      nationality: "Britannique",
+      birthdate: "8 octobre 1963"
     },
     style: "Fantastique",
     url: "https://m.media-amazon.com/images/M/MV5BMTI2ZGZhYmYtMWIxNy00MjBkLTg3YzktYTg0MjQ1ODA5ZGFmXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_SY1000_CR0,0,709,1000_AL_.jpg",
@@ -101,9 +99,9 @@ window.shared_data = {
     date: 2010,
     language: "français",
     director: {
-      name: "Chris Columbus",
-      nationality: "Américaine",
-      birthdate: "10 septembre 1958"
+      name: "David Yates",
+      nationality: "Britannique",
+      birthdate: "8 octobre 1963"
     },
     style: "Fantastique",
     url: "https://m.media-amazon.com/images/M/MV5BMTQ2OTE1Mjk0N15BMl5BanBnXkFtZTcwODE3MDAwNA@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
@@ -114,9 +112,9 @@ window.shared_data = {
     date: 2011,
     language: "français",
     director: {
-      name: "Chris Columbus",
-      nationality: "Américaine",
-      birthdate: "10 septembre 1958"
+      name: "David Yates",
+      nationality: "Britannique",
+      birthdate: "8 octobre 1963"
     },
     style: "Fantastique",
     url: "https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX667_CR0,0,667,999_AL_.jpg",
