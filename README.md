@@ -2,4 +2,4 @@
 
 Léo Le Follezou Bar
 
-La recherche doit correspondre exactement à ce que l'on recherche pour fonctionner. 
+Ce qu'on saisit dans la barre de recherche doit correspondre exactement à ce que l'on recherche pour fonctionner. 
